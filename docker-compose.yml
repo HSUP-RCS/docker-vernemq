@@ -1,0 +1,19 @@
+version: "3.7"
+services:
+  vmq0:
+    build: .
+    ports:
+      - 1883:1883
+      - 1880:8080
+      - 8888:8888
+    environment:
+      DOCKER_VERNEMQ_ALLOW_ANONYMOUS: "on"
+    volumes:
+      - "log:/vernemq/log"
+      - "etc:/vernemq/etc"
+      - "data:/vernemq/data"
+
+volumes:
+  log:
+  etc:
+  data:
